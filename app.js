@@ -1,24 +1,24 @@
 // Meme images list
 const memeImages = [
-    'assets/IMG_4304.PNG',
-    'assets/IMG_4466.PNG',
-    'assets/IMG_4467.PNG',
-    'assets/IMG_4536.PNG',
-    'assets/IMG_4548.PNG',
-    'assets/IMG_4762.PNG',
-    'assets/IMG_4837.PNG',
-    'assets/IMG_4877.PNG',
-    'assets/IMG_5030.PNG',
-    'assets/IMG_5130.PNG',
-    'assets/IMG_5134.PNG',
-    'assets/IMG_5152.JPG',
-    'assets/IMG_5248.PNG',
-    'assets/IMG_5289.PNG',
-    'assets/IMG_5307.PNG',
-    'assets/IMG_5309.JPG',
-    'assets/IMG_5328.PNG',
-    'assets/IMG_5336.PNG',
-    'assets/IMG_5338.PNG'
+    'assets/IMG_4304.webp',
+    'assets/IMG_4466.webp',
+    'assets/IMG_4467.webp',
+    'assets/IMG_4536.webp',
+    'assets/IMG_4548.webp',
+    'assets/IMG_4762.webp',
+    'assets/IMG_4837.webp',
+    'assets/IMG_4877.webp',
+    'assets/IMG_5030.webp',
+    'assets/IMG_5130.webp',
+    'assets/IMG_5134.webp',
+    'assets/IMG_5152.webp',
+    'assets/IMG_5248.webp',
+    'assets/IMG_5289.webp',
+    'assets/IMG_5307.webp',
+    'assets/IMG_5309.webp',
+    'assets/IMG_5328.webp',
+    'assets/IMG_5336.webp',
+    'assets/IMG_5338.webp'
 ];
 
 // State variables
@@ -429,14 +429,14 @@ function createRowHTML(title, items) {
         const card = document.createElement('div');
         card.className = 'poster-card';
         
-        const imgUrl = item.Poster && item.Poster !== 'N/A' ? item.Poster : 'assets/IMG_4304.PNG';
+        const imgUrl = item.Poster && item.Poster !== 'N/A' ? item.Poster : 'assets/IMG_4304.webp';
         
         const titleText = item.Title || 'Untitled';
         const rating = item.Type === 'series' ? 'TV-PG' : 'PG-13';
         const match = Math.floor(Math.random() * 10) + 90; // 90% - 99%
         
         card.innerHTML = `
-            <img src="${imgUrl}" alt="${titleText}" class="poster-img" onerror="this.src='assets/IMG_4304.PNG'">
+            <img src="${imgUrl}" alt="${titleText}" class="poster-img" onerror="this.src='assets/IMG_4304.webp'">
             <div class="card-hover-details">
                 <div class="card-actions">
                     <button class="action-btn"><i class="fas fa-play"></i></button>

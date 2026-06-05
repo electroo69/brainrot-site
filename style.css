@@ -1,0 +1,714 @@
+/* Custom Fonts & Base Variables */
+:root {
+    --netflix-red: #e50914;
+    --netflix-black: #141414;
+    --netflix-dark-gray: #181818;
+    --netflix-light-gray: #e5e5e5;
+    --sans-serif: 'Outfit', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--netflix-black);
+    color: #fff;
+    font-family: var(--sans-serif);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--netflix-black);
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ==================== HEADER STYLES ==================== */
+.netflix-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background-color var(--transition-speed) ease;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+}
+
+.netflix-header.scrolled {
+    background-color: var(--netflix-black);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    color: var(--netflix-red);
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: -1px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--netflix-light-gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-element {
+    cursor: pointer;
+    color: #fff;
+}
+
+.kids {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.icon-btn {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Search bar design (premium, interactive) */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 10px;
+    border-radius: 4px;
+    gap: 8px;
+    transition: width 0.3s ease, border-color 0.3s ease;
+    width: 250px;
+}
+
+.search-wrapper:focus-within {
+    border-color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.search-icon {
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.caret {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* ==================== HERO SECTION STYLES ==================== */
+.hero-section {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 4%;
+    margin-bottom: 20px;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradients overlay to blend video with Netflix UI */
+.hero-overlay-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+
+.hero-overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--netflix-black) 0%, rgba(20, 20, 20, 0.6) 40%, transparent 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    margin-top: 50px;
+}
+
+.original-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--netflix-light-gray);
+    margin-bottom: 15px;
+}
+
+.n-logo {
+    color: var(--netflix-red);
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.match {
+    color: #46d369;
+}
+
+.year, .seasons {
+    color: #bcbcbc;
+}
+
+.rating {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1px 6px;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
+.quality {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1px 4px;
+    font-size: 9px;
+    border-radius: 2px;
+}
+
+.hero-description {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #fff;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    outline: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
+.btn-play {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-info {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+.age-rating {
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, 0.6);
+    border-left: 3px solid #dcdcdc;
+    padding: 6px 30px 6px 12px;
+    font-size: 15px;
+}
+
+/* ==================== CONTENT ROW STYLES ==================== */
+.netflix-rows {
+    padding: 0 4% 50px 4%;
+    position: relative;
+    z-index: 2;
+    margin-top: -80px;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.row-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #e5e5e5;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.row:hover .row-title {
+    color: #fff;
+}
+
+.row-posters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+/* Movie Card Hover Zoom Effect (authentic Netflix layout) */
+.poster-card {
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--netflix-dark-gray);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, z-index 0s var(--transition-speed);
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+
+.card-hover-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 70%, transparent 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.poster-card:hover {
+    transform: scale(1.4) translateY(-15%);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.poster-card:hover .card-hover-details {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.card-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.card-tags {
+    font-size: 9px;
+    color: #b3b3b3;
+}
+
+/* ==================== FOOTER STYLES ==================== */
+.netflix-footer {
+    max-width: 980px;
+    margin: 40px auto 0 auto;
+    padding: 0 4% 30px 4%;
+    color: #808080;
+    font-size: 12px;
+}
+
+.social-links {
+    display: flex;
+    gap: 25px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.social-links i {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.social-links i:hover {
+    color: #fff;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: #808080;
+    text-decoration: none;
+    transition: underline 0.2s ease;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    font-size: 11px;
+}
+
+/* ==================== BRAINROT STATE STYLES ==================== */
+
+/* Chroma Key Canvas overlay (covers the screen, captures video) */
+#brainrot-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none;
+    display: none;
+}
+
+/* Rainbow Flashing Color Overlay */
+#rainbow-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.5s ease;
+}
+
+/* Active brainrot status */
+body.brainrot-active {
+    animation: screen-shake 0.1s infinite alternate;
+}
+
+body.brainrot-active #rainbow-overlay {
+    opacity: 0.45;
+    animation: rainbow-flash 0.15s infinite linear;
+}
+
+body.brainrot-active #brainrot-canvas {
+    display: block;
+}
+
+/* Container for bouncing memes */
+#meme-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    pointer-events: none;
+}
+
+/* Individual bouncing meme */
+.flying-meme {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(255,0,0,0.5);
+    border: 3px solid #fff;
+    pointer-events: none;
+    transform-origin: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+/* Click shield for user interaction fallback */
+#click-shield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+#click-shield.hidden {
+    display: none;
+}
+
+/* Keyframes for screen shake */
+@keyframes screen-shake {
+    0% { transform: translate(3px, 5px) rotate(-1deg); }
+    20% { transform: translate(-5px, -3px) rotate(1deg); }
+    40% { transform: translate(1px, -1px) rotate(-1deg); }
+    60% { transform: translate(-3px, 3px) rotate(2deg); }
+    80% { transform: translate(4px, 2px) rotate(-2deg); }
+    100% { transform: translate(-2px, -4px) rotate(1deg); }
+}
+
+/* Keyframes for rapid color flashing */
+@keyframes rainbow-flash {
+    0% { background-color: #ff0000; }
+    17% { background-color: #ff00ff; }
+    33% { background-color: #0000ff; }
+    50% { background-color: #00ffff; }
+    66% { background-color: #00ff00; }
+    83% { background-color: #ffff00; }
+    100% { background-color: #ff0000; }
+}
+
+/* UI element distortions under brainrot state */
+body.brainrot-active .netflix-header {
+    filter: hue-rotate(90deg) invert(1);
+    transform: scale(0.98);
+}
+
+body.brainrot-active .hero-content {
+    animation: bounce 0.15s infinite alternate;
+    transform-origin: left bottom;
+}
+
+body.brainrot-active .poster-card {
+    filter: saturate(5) contrast(1.5);
+    border-color: #00ff00;
+}
+
+@keyframes bounce {
+    from { transform: scale(1) skewX(-2deg); }
+    to { transform: scale(1.05) skewX(2deg); }
+}
+
+/* Responsive adjustments */
+@media(max-width: 1024px) {
+    .row-posters {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .navigation {
+        display: none; /* simple burger menu / hide for simplicity */
+    }
+    .row-posters {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-description {
+        font-size: 14px;
+    }
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 480px) {
+    .row-posters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ==================== SKELETON LOADERS ==================== */
+.skeleton {
+    background: linear-gradient(90deg, #1c1c1c 25%, #2a2a2a 50%, #1c1c1c 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 16px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.skeleton-title {
+    width: 60%;
+    height: 48px;
+}
+
+.skeleton-desc {
+    width: 90%;
+    height: 16px;
+}
+
+.skeleton-desc-short {
+    width: 40%;
+    height: 16px;
+}
+
+.skeleton-card {
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    background-color: var(--netflix-dark-gray);
+}
+
+
+

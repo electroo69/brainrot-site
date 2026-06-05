@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotflix - Watch TV Shows Online, Watch Movies Online</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Netflix icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Netflix Clone Header -->
+    <header class="netflix-header" id="main-header">
+        <div class="header-left">
+            <div class="logo">ROTFLIX</div>
+            <nav class="navigation">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">TV Shows</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">New & Popular</a>
+                <a href="#" class="nav-link">My List</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <!-- Search bar wrapper (clicking triggers brainrot) -->
+            <div class="search-wrapper" id="search-trigger">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Titles, people, genres..." class="search-input" id="search-bar">
+            </div>
+            <span class="nav-element kids">Kids</span>
+            <i class="fas fa-bell nav-element icon-btn"></i>
+            <div class="profile-menu nav-element">
+                <img src="assets/IMG_4536.PNG" alt="Profile" class="profile-pic">
+                <i class="fas fa-caret-down caret"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Netflix style with video background) -->
+    <section class="hero-section">
+        <div class="hero-video-container">
+            <!-- Dynamically populated to prevent premature video/image flashes -->
+            <div class="hero-overlay-top"></div>
+            <div class="hero-overlay-bottom"></div>
+        </div>
+        <div class="hero-content">
+            <div class="original-badge"><span class="n-logo">R</span> ORIGINAL SERIES</div>
+            <h1 class="hero-title skeleton skeleton-text skeleton-title"></h1>
+            <p class="hero-meta">
+                <span class="match skeleton skeleton-text" style="width: 70px;"></span>
+                <span class="year skeleton skeleton-text" style="width: 45px;"></span>
+                <span class="rating skeleton skeleton-text" style="width: 55px;"></span>
+            </p>
+            <div class="hero-description" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="skeleton skeleton-text skeleton-desc"></div>
+                <div class="skeleton skeleton-text skeleton-desc"></div>
+                <div class="skeleton skeleton-text skeleton-desc-short"></div>
+            </div>
+            <div class="hero-buttons">
+                <!-- Watch Now Button (triggers brainrot) -->
+                <button class="btn btn-play" id="btn-watch-now">
+                    <i class="fas fa-play"></i> Watch Now
+                </button>
+                <button class="btn btn-info">
+                    <i class="fas fa-info-circle"></i> More Info
+                </button>
+            </div>
+        </div>
+        <div class="age-rating">TV-MA</div>
+    </section>
+
+    <!-- Content Sections (Rows of Show Cards) -->
+    <main class="netflix-rows" id="netflix-rows-container">
+        <!-- Loading Skeletons -->
+        <section class="row">
+            <h2 class="row-title skeleton skeleton-text" style="width: 180px; height: 24px; margin-bottom: 15px;"></h2>
+            <div class="row-posters">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </section>
+        <section class="row">
+            <h2 class="row-title skeleton skeleton-text" style="width: 140px; height: 24px; margin-bottom: 15px;"></h2>
+            <div class="row-posters">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="netflix-footer">
+        <div class="social-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Audio Description</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Media Center</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Legal Notices</a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+            <li><a href="#">Corporate Information</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="footer-copyright">© 1997-2026 Rotflix, Inc.</div>
+    </footer>
+
+    <!-- ==================== BRAINROT MODE ELEMENTS ==================== -->
+    
+    <!-- Hidden Green Screen Video (Source for Canvas Chroma Key) -->
+    <video id="greenscreen-video" src="assets/greenscreen-video.mp4" loop muted crossorigin="anonymous" playsinline style="display: none;"></video>
+    
+    <!-- Full-screen Chroma Key Canvas Overlay -->
+    <canvas id="brainrot-canvas"></canvas>
+
+    <!-- Flashing Rainbow Color overlay -->
+    <div id="rainbow-overlay"></div>
+
+    <!-- Container where chaotic floating memes will be spawned and fly around -->
+    <div id="meme-container"></div>
+    
+    <!-- Overlay triggering overlay (when page is idle, wait for click to bypass browser audio autoplay restrictions if needed, although clicking search/watch already gives us user activation context) -->
+    <div id="click-shield" class="hidden"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
